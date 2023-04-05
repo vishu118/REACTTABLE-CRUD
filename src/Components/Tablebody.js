@@ -1,18 +1,30 @@
 import React from 'react'
+import {FaArrowUp , FaArrowDown} from "react-icons/fa"
 
-const Tablebody = ({Contact}) => {
+const Tablebody = ({Contact,SortingByID,SortingByName,Sorted}) => {
+
+    const renderArrow = ()=>{
+        if(Sorted.reversed){
+          return <FaArrowDown/>
+        }
+        return <FaArrowUp/>
+      }
+
   return (
     
     <div>
     <table>
-      <thead>
+      <thead >
         <tr>
-          <th >
-            Id
+          <th onClick = {SortingByID}>Id
+          {Sorted.Sorted === "id" ? renderArrow():null}
           </th>
-          <th>Name</th>
+          <th onClick = {SortingByName}>Name
+          {Sorted.Sorted === "name" ? renderArrow():null}
+          </th>
           <th>Email</th>
-          <th>Phone</th>
+          <th>Phone
+          </th>
         </tr>
       </thead>
       <tbody>
