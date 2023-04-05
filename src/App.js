@@ -6,7 +6,8 @@ import { useState } from "react";
 
 function App() {
   const [Contact, setContact] = useState(Data);
-  console.log(Contact);
+  const [SearchContact , setSearchContact] = useState("")
+
 
   const [NewContact, setNewContact] = useState({
     id: "",
@@ -23,6 +24,14 @@ function App() {
     newInputs[fieldName] = fieldValue;
     setNewContact(newInputs);
   };
+
+  const handleSearch= (e)=>{
+    const matchedContact = Data.filter((contact)=>{
+      return contact.name.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    setContact(matchedContact)
+    setSearchContact(e.target.value)
+  }
 
   const handleAddContact = (e) => {
     e.preventDefault();
@@ -55,6 +64,9 @@ function App() {
         handleAddContact={handleAddContact}
         setNewContact={setNewContact}
         NewContact={NewContact}
+        handleSearch = {handleSearch}
+        SearchContact={SearchContact
+        }
       />
 
       <Tablebody Contact={Contact} />

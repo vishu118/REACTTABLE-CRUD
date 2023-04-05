@@ -1,7 +1,7 @@
 
 
 
-const Head = ({handleChange,handleAddContact,NewContact}) => {
+const Head = ({handleChange,handleAddContact,NewContact,handleSearch,SearchContact}) => {
   return (
     <>
          <div className="head">
@@ -12,6 +12,8 @@ const Head = ({handleChange,handleAddContact,NewContact}) => {
             type="text"
             className="search-input"
             placeholder="Enter here to Search"
+            
+            onChange={handleSearch}
 
             
           />
