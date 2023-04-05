@@ -1,7 +1,7 @@
 import React from 'react'
 import {FaArrowUp , FaArrowDown} from "react-icons/fa"
 
-const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete}) => {
+const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handleEdit}) => {
 
     const renderArrow = ()=>{
         if(Sorted.reversed){
@@ -39,7 +39,7 @@ const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete}) => {
               
               <div className='button'>
               <button className='Action-btn' onClick = {(e) => handleDelete(user.id)}>Delete</button>
-              <button className='Action-btn'>Edit</button>
+              <button className='Action-btn' onClick = {(e)=> handleEdit(user.id)}>Edit</button>
               </div>
               </td>
             </tr>

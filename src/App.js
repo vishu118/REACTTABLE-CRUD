@@ -23,6 +23,16 @@ function App() {
     setContact(Delete);
   };
 
+
+  const handleEdit = (id) =>{
+    const editContact =  Contact.find((ele)=>{
+      return ele.id === id
+    })
+    setNewContact(editContact)
+    const edited = Contact.filter((ele) => ele.id !== id);
+    setContact(edited);
+  }
+
   const SortingByID = () => {
     setSorted({ Sorted: "id", reversed: !Sorted.reversed });
     const ContactCopy = [...Contact];
@@ -103,6 +113,7 @@ function App() {
         SortingByName={SortingByName}
         Sorted={Sorted}
         handleDelete={handleDelete}
+        handleEdit={handleEdit}
       />
     </div>
   );
