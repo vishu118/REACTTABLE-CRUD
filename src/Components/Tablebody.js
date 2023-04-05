@@ -1,7 +1,7 @@
 import React from 'react'
 import {FaArrowUp , FaArrowDown} from "react-icons/fa"
 
-const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handleEdit}) => {
+const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handleEdit,Pages,setPages}) => {
 
     const renderArrow = ()=>{
         if(Sorted.reversed){
@@ -9,6 +9,11 @@ const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handle
         }
         return <FaArrowUp/>
       }
+
+
+    const SelectPages = (SelectedPage)=>{
+setPages(SelectedPage)
+    } 
 
   return (
     
@@ -28,7 +33,7 @@ const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handle
         </tr>
       </thead>
       <tbody>
-        {Contact.map((user) => {
+        {Contact.slice(Pages * 5 -5, Pages *5).map((user) => {
           return (
             <tr key={user.id}>
               <td>{user.id}</td>
@@ -47,6 +52,22 @@ const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handle
         })}
       </tbody>
     </table>
+
+    {
+        Contact.length > 0 && <div className='pagination'>
+        <span className='arrow' onClick = {()=>SelectPages(Pages-1)} >◀️</span>
+        {
+            [...Array(Contact.length/5)].map((_,i)=>{
+                return <span
+                className={Pages === i+1 ? "PageSelected" : ""}
+                 onClick = {()=>SelectPages(i+1)}>{i+1}</span>
+            })
+        }
+       
+        <span className='arrow' onClick = {()=>SelectPages(Pages+1)} >▶️</span>
+
+     </div>
+    }
   </div>
   )
 }
