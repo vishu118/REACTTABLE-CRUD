@@ -1,7 +1,7 @@
 
 
 
-const Head = ({handleChange,handleAddContact}) => {
+const Head = ({handleChange,handleAddContact,NewContact}) => {
   return (
     <>
          <div className="head">
@@ -24,6 +24,8 @@ const Head = ({handleChange,handleAddContact}) => {
             name="id"
             placeholder="Enter id"
             onChange = {handleChange}
+            value={NewContact.id}
+    
            
           />
 
@@ -32,6 +34,8 @@ const Head = ({handleChange,handleAddContact}) => {
             name="name"
             placeholder="Enter Name"
             onChange = {handleChange}
+            value={NewContact.name}
+        
           
           />
           <input
@@ -39,6 +43,7 @@ const Head = ({handleChange,handleAddContact}) => {
             name="email"
             placeholder="Enter your Email"
             onChange = {handleChange}
+            value={NewContact.email}
             
           />
           <input
@@ -46,6 +51,7 @@ const Head = ({handleChange,handleAddContact}) => {
             name="phone"
             placeholder="Enter Your Phone"
             onChange = {handleChange}
+            value={NewContact.phone}
           
           />
 
