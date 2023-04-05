@@ -8,7 +8,7 @@ function App() {
   const [Contact, setContact] = useState(Data);
   const [SearchContact, setSearchContact] = useState("");
   const [Sorted, setSorted] = useState({ Sorted: "id", reversed: false });
-  const [ Pages, setPages]  = useState(1)
+ 
 
   const [NewContact, setNewContact] = useState({
     id: "",
@@ -115,8 +115,7 @@ function App() {
         Sorted={Sorted}
         handleDelete={handleDelete}
         handleEdit={handleEdit}
-        Pages = {Pages}
-        setPages = {setPages}
+       
       />
     </div>
   );

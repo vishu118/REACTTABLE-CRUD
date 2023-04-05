@@ -11,9 +11,6 @@ const Tablebody = ({Contact,SortingByID,SortingByName,Sorted,handleDelete,handle
       }
 
 
-    const SelectPages = (SelectedPage)=>{
-setPages(SelectedPage)
-    } 
 
   return (
     
@@ -33,7 +30,7 @@ setPages(SelectedPage)
         </tr>
       </thead>
       <tbody>
-        {Contact.slice(Pages * 5 -5, Pages *5).map((user) => {
+        {Contact.map((user) => {
           return (
             <tr key={user.id}>
               <td>{user.id}</td>
@@ -53,21 +50,6 @@ setPages(SelectedPage)
       </tbody>
     </table>
 
-    {
-        Contact.length > 0 && <div className='pagination'>
-        <span className='arrow' onClick = {()=>SelectPages(Pages-1)} >◀️</span>
-        {
-            [...Array(Contact.length/5)].map((_,i)=>{
-                return <span
-                className={Pages === i+1 ? "PageSelected" : ""}
-                 onClick = {()=>SelectPages(i+1)}>{i+1}</span>
-            })
-        }
-       
-        <span className='arrow' onClick = {()=>SelectPages(Pages+1)} >▶️</span>
-
-     </div>
-    }
   </div>
   )
 }
