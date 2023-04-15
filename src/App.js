@@ -77,7 +77,7 @@ function App() {
 
   const handleAddContact = (e) => {
     e.preventDefault();
-    if (NewContact !== "" && NewContact.id !== "") {
+    if (NewContact !== "" && NewContact.id !== "" && NewContact.name !== "" && NewContact.email !== "") {
       const ContactToAdd = {
         id: NewContact.id,
         name: NewContact.name,
